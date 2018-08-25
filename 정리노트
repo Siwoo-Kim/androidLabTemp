@@ -130,3 +130,20 @@ assets 폴더?
 strings.xml?
 res/drawable
 
+
+
+TableLayout?
+    TableRow?
+    android:shrinkColumns
+    android:stretchColumns
+    android:layout_column
+    android:layout_span
+
+GridLayout?
+    columnCount, rowCount
+    orientation 속성과 columnCount, rowCount 의 관계
+    layout_column
+    layout_row
+    layout_columnSpan
+    layout_rowSpan
+    layout_gravity
