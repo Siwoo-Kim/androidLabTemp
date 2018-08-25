@@ -1,0 +1,132 @@
+
+UI 액티비티-뷰 구조
+액티비티?
+	안드로이드 컴포넌트(Activity, Service, ContentProvider, BroadcastReciever)들 중 하나로써, 화면 출력을 담당한다.
+뷰?
+	다양한 화면의 내용물(UI)을 추상화한 클래스.
+
+setContentView(View view)
+setContentView(int layoutResID)
+	액티비티에서 뷰를 추가
+
+두가지 UI 작성법?
+	자바 코드와 Layout XML
+
+LinearLayout
+	뷰를 순서대로 가로 혹은 세로로 정렬하는 Container (ViewGroup)
+Layout XML?
+	뷰를 XML 파일로 정의, /res/layout 디렉토리에 저장.
+
+Launcher Activity?
+	해당 액티비티를 다른 Activity와 별개로 독립적으로 실행.
+
+
+뷰 태그의 속성?
+	뷰 태그에 다양한 속성을 추가할 수 있으며, 이 속성들을 이용하여 뷰를 정의, 설정한다.
+
+	*TextView?
+		화면에 문자열을 출력하는 뷰.
+
+	id 속성?
+		뷰의 식별자를 부여. 자바 코드에서 참조 가능.
+		R.id?
+			android:id="@+id/[name]" 속성으로 부여된 id 값은 R.java에 클래스에 등록된다.
+
+		findViewById(int id)
+			뷰의 식별자를 이용하여 뷰 객체를 리턴.
+
+
+layout_width, layout_height?
+	뷰의 가로(layout_width), 세로(layout_height) 크기를 지정.
+    match_parent, fill_content
+	해당 뷰가 부모 뷰의 크기를 모두 차지.
+    wrap_content
+	해당 뷰의 크기를 적절하게 계산해서 결정. ex) TextView는 폰트 크기와 갯수에 영향을 받는다.
+    100px
+	해당 뷰의 크기를 px로 지정
+
+margin
+	layout_marginLeft, layout_marginRight, layout_marginTop, layout_marginBottom
+	여러 뷰 간의 간격을 지정.
+padding
+	layout_paddingLeft,layout_paddingRight, layout_paddingTop, layout_paddingBottom,
+	하나의 뷰의 테두리(변)과 내용과의 간격을 지정.
+
+
+clickable
+	TextView, ImageView의 clickable 속성
+
+visibility
+    true, invisible, gone
+	-뷰의 가시성을 제어.
+	invisible과 gone의 차이?
+		-둘 다 가시성을 잃지만, invisible은 화면을 차지하고 gone은 화면의 차지 공간을 잃는다.
+setVisibility(int visible)
+	자바 코드에서 뷰의 가시성을 제어
+
+View.OnClickListener?
+
+뷰의 계층구조
+	뷰는 뷰 객체 간의 계층을 이룬다.
+View?
+	뷰 클래스의 최상위 클래스.
+ViewGroup?
+	뷰 클래스의 자식 클래스로 Container 역할을 담당한다. Layout 클래스들의 부모 클래스.
+TextView?
+	지정한 문자열을 출력하는 View 클래스
+
+레이아웃 XML로 계층구조 구현 방법?
+	태그의 상하 관계를 이용.
+
+자바 코드로 계층구조 구현 방법?
+	Activity.addView(View view)
+
+뷰 클래스
+    TextView?
+        android:text?
+		    -화면에 출력할 문자열을 지정.
+        android:typeface?
+		    normal(default), sans, serif, monospace
+		    -문자열의 폰트를 지정.
+        TextView.setTypeFace(Typeface typeface)?
+		    -자바 코드에서 임의의 폰트를 지정.
+        android:textStyle?
+		normal(default), bold, italic
+		    -문자열 효과를 지정
+        android:textColor?
+        android:textSize?
+        android:autoLink? *
+		web|email|phone
+		    -문자열을 parsing해 특정 형태의 맞는 link로 처리.
+        maxLines?
+		    -화면에 출력할 최대 라인을 지정.
+        ellipsize?
+            -maxLines로 지정된 최대 라인을 문자열이 초과시 생략하고 줄임 표시(..) 추가.
+
+    ImageView?
+        android:src
+        android:maxWidth, android:maxHeight
+        android:adjustViewBounds?
+        android:tint?
+
+    EditText?
+        android:lines?
+        android:maxLines?
+        android:inputType?
+        android:text?
+        android:textMultiLine
+        android:gravity
+
+    Button?
+        Checkbox extends CompoundButton?
+            isChecked()
+            setChecked(boolean)
+            toggle()
+            setOnCheckedChangeListener(OnCheckedChangeListener)
+        RadioButton extends CompoundButton?
+            RadioGroup?
+
+assets 폴더?
+strings.xml?
+res/drawable
+
