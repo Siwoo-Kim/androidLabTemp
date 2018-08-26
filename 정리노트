@@ -145,5 +145,29 @@ GridLayout?
     layout_column
     layout_row
     layout_columnSpan
-    layout_rowSpan
+    layout_rowSpa
     layout_gravity
+
+ConstraintLayout?
+    가로축?
+    세로축?
+    app:layout_constraint[뷰적용변]_to[상대뷰적용변]Of
+    app:layout_constraintLeft_toLeftOf
+    app:layout_constraintLeft_toRightOf?
+    app:layout_constraintBottom_toBottomOf?
+
+    app:layout_constraint 을 이용해 뷰를 부모 뷰 정중앙에 위치시켜라.
+
+    android:layout_margin[위치]?
+    app:layout_goneMargin[위치]?
+        상대 뷰의 visibility 가 gone 이고 android:layout_marginLeft=10dp, android:layout_goneMarginLeft 가 설정되어 있지 않다면 해당 뷰의 Left Margin 값은?
+        상대 뷰의 visibility 가 gone 이고 android:layout_marginLeft=10dp, android:layout_goneMarginLeft=15dp 라면 해당 뷰의 Left Margin 값은?
+
+    bias?
+        layout_constraintHorizontal_bias, layout_constraintVertical_bias
+
+    ratio?
+        constraintDimensionRatio
+        [Width:Height]
+        W,H?
+
