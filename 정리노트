@@ -171,3 +171,88 @@ ConstraintLayout?
         [Width:Height]
         W,H?
 
+
+진동과 소리
+진동
+    퍼미션?
+        AndroidManifest.xml?
+        <user-permission android:name="android.permission.VIBRATE" />?
+        Vibrator?
+            getSystemService(VIBRATOR_SERVICE);
+                 SystemService?
+            Vibrator.vibrate(long[] pattern, int repeat)
+                long 배열의 홀수 번째? long 배열의 짝수 번째?
+                int repeat 값 0, int repeat 값 -1?
+                ex) Vibrator.vibrate(new long[]{500, 1000, 500, 1000}, -1);
+                vibrate 와 cancel()?
+소리
+    시스템 효과음?
+        Uri?
+        RingtonManager 의 getDefaultUri()
+            효과음의 종류?
+            play()
+
+    임의의 효과음?
+        MediaPlayer?
+        raw 폴더?
+
+다이얼로그?
+    모달?
+    모달리스?
+
+    모달리스
+        토스트?
+            makeText(Context context, int resId, int duration)?
+            makeText(Context context, CharSequence text, int duration)?
+            Toast.setDuration(int duration)?
+            Toast.setText(int resId)?
+            Toast.setView(View view)?
+            Toast.setGravity(int gravity, int xOffset, int yOffset)?
+            Toast.setMargin(float horizontalMargin, float verticalMargin)?
+
+            Toast.show()?
+    모달
+        AlertDialog?
+            AlertDialog 의 화면 구조?
+            AlertDialog.Builder(Context context)?
+                AlertDialog.Builder?
+                    AlertDialog.Builder.setIcon(int iconId)?
+                    AlertDialog.Builder.setMessage(CharSequence message)?
+                    AlertDialog.Builder.setTitle(CharSequence title)?
+                    AlertDialog.Builder.setPositiveButton(CharSequence text, DialogInterface.OnClickListener listener)?
+                    AlertDialog.Builder.setNegativeButton(CharSequence text, DialogInterface.OnClickListener listener)?
+                    AlertDialog.Builder.setNeutralButton(CharSequence text, DialogInterface.OnClickListener listener)?
+                    AlertDialog.Builder.create()?
+                AlertDialog.show()?
+                AlertDialog.setCancelable(boolean cancelable)?
+
+        목록과 AlertDialog?
+            AlertDialog.Builder.setItems(int itemsId, DialogInterface.OnClickListener listener)?
+            AlertDialog.Builder.setItems(CharSequence[] items, DialogInterface.OnClickListener listener)?
+            목록과 체크박스, 라디오버튼?
+                AlertDialog.Builder.setMultiChoiceItems(CharSequence[] items, boolean[] checkedItems, DialogInterface.OnMultiChoiceClickListener listener)?
+                AlertDialog.Builder.setMultiChoiceItems(int itemsId, boolean[] checkedItems, DialogInterface.OnMultiChoiceClickListener listener)?
+                AlertDialog.Builder.setSingleItems(CharSequence[] items, boolean[] checkedItems, DialogInterface.OnMultiChoiceClickListener listener)?
+                AlertDialog.Builder.setSingleItems(int itemsId, boolean[] checkedItems, DialogInterface.OnMultiChoiceClickListener listener)?
+
+        ProgressDialog extends AlertDialog?
+            ProgressDialog.setProgressStyle
+                ex) ProgressDialog.STYLE_HORIZONTAL
+
+            ProgressDialog.setIndeterminate(boolean indeterminate)?
+            ProgressDialog.setProgressNumberFormat(String format)?
+            ProgressDialog.setProgressPercentFormat(NumberFormat format)?
+
+         DatePickerDialog?
+            DatePickerDialog(Context context, Listener.onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth), year, month, day);
+         TimePickerDialog?
+            TimePickerDialog(Context context, Listener.onTimeSet(TimePicker view, int hourOfDay, int minute), hour, minute, boolean 24hours)
+
+         커스텀 다이얼로그?
+            LayoutInflater?
+
+
+
+
+
+
